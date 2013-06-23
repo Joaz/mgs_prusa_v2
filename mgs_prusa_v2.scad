@@ -28,6 +28,17 @@ motor_OD=35;
 
 
 
+mgs_v2();
+translate([0,-36,-33]) idler();
+
+%drive_assembly();
+
+%idler_assembly();
+
+
+
+// Assemblies
+
 module drive_assembly(){
 
 	rotate(a=90,v=[0,1,0]){
@@ -39,6 +50,17 @@ module drive_assembly(){
 	}
 }
 
+module idler_assembly(){
+    
+    translate([18,5,2]) {
+        rotate([180,0,0]) idler();   
+    
+    }
+    
+}
+
+
+// Actual code 
 
 module mgs_v2(){
     union(){
@@ -47,23 +69,7 @@ module mgs_v2(){
     }
 
 }
-mgs_v2();
-translate([0,-36,-33]) idler();
 
-%drive_assembly();
-
-%idler_assembly();
-
-
-module idler_assembly(){
-    
-    translate([18,5,2]) {
-        rotate([180,0,0]) idler();   
-    
-    }
-    
-
-}
 
 module idler(){
     difference(){
