@@ -138,7 +138,7 @@ module side_part(){
 		//	#translate([19,-10,-33]) cube([15,18,12]);
 			
 			// bearing holder
-			translate([29,-10,-33]) cube([7,20,27+3]);
+			translate([29,-13,-33]) cube([7,26,38]);
 			
 		}
 		translate([0,0,-shafts_distance+2]) rotate([0,90,0]) cylinder(r=((driven_gear_teeth+0)*gear_module)/2+1,h=driven_gear_hub_length+12);
@@ -149,16 +149,26 @@ module side_part(){
         
         
         // bearing slot
-        translate([29-0.1-1,0,-shafts_distance+2]) rotate([0,90,0]) long_slot(r=5.6,h=4.1+1,h2=15); 
-        translate([26.5,0,-shafts_distance+2]) rotate([0,90,0]) long_slot(r=4.5,h=10,h2=16); 
+        translate([29-0.1-1,0,-shafts_distance+2]) rotate([0,90,0]) long_slot(r=5.6,h=4.1+1,h2=30); 
+        translate([26.5,0,-shafts_distance+2]) rotate([0,90,0]) long_slot(r=4.5,h=10,h2=30); 
         // fix for impossible overhang because of the hole
-        translate([32.5,0,-shafts_distance+2+5]) rotate([0,90,0]) long_slot(r=5.6,h=4.1,h2=15); 
+        translate([32.5,0,-shafts_distance+2+5]) rotate([0,90,0]) long_slot(r=5.6,h=4.1,h2=30); 
         
         // bearing fixation hole
         // #translate([32,15,-9.4]) rotate([90,0,0]) cylinder(r=3.05/2,h=30);
         // actually, instead of the bearing fixation bolt, we put a hinge for the idler there 
         // and let the idler bearing push the bolt downward. In operation, the bearing cannot go up.
-        translate([32.5,15,-7]) rotate([90,0,0]) cylinder(r=1.75,h=30);
+       
+	// slide in shaft trap for the idler
+	translate([32.5,10,-7]) rotate([90,90,0]) long_slot(r=1.90,h=21,h2=8);
+	translate([32.5,-4,-2]) rotate([90,90,0]) long_slot(r=1.90,h=10,h2=2);
+
+	// make a 1.5mm hole to be able to push it out again if it doesn't want to go out by gravity
+	translate([32.5,14,1]) rotate([90,0,0]) long_slot(r=0.75,h=5);
+
+           
+	// shaft = either 3mm x 20mm shaft or m3x20 grub     
+	// %translate([32.5,9,-7]) rotate([90,0,0]) cylinder(r=1.75,h=20);
         
         
         // idler tensioner cut
