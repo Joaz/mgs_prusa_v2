@@ -35,7 +35,7 @@ translate([0,-36,-33]) idler();
 
 %idler_assembly();
 
-
+%hotend_assembly();
 
 // Assemblies
 
@@ -57,6 +57,19 @@ module idler_assembly(){
     
     }
     
+}
+
+// without head, measurements for j-head mk-v
+module hotend_assembly(filament_diameter=3.2){
+    translate([24.5,13+2,-12.5]) rotate([-90,0,0]) difference(){
+	    union(){
+		cylinder(r=6, h=40);
+		cylinder(r=8, h=5);
+		translate([0,0,10]) cylinder(r=8, h=30);    
+	    }
+	translate([0,0,-0.1]) cylinder(r=filament_diameter/2,h=50);	
+
+	}
 }
 
 
@@ -275,14 +288,6 @@ module bearing_mr115(){
 // unused code for the moment
 
 
-// without head, measurements for j-head mk-v
-module hotend(){
-    union(){
-        cylinder(r=6, h=40);
-        cylinder(r=8, h=5);
-        translate([0,0,10]) cylinder(r=8, h=30);    
-    }
-}
  
 module fan_40mm(){
     union(){
