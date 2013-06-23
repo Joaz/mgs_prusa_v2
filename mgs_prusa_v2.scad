@@ -48,10 +48,22 @@ module mgs_v2(){
 
 }
 mgs_v2();
+translate([0,-36,-33]) idler();
 
 %drive_assembly();
 
 %idler_assembly();
+
+
+module idler_assembly(){
+    
+    translate([18,5,2]) {
+        rotate([180,0,0]) idler();   
+    
+    }
+    
+
+}
 
 module idler(){
     difference(){
@@ -85,18 +97,6 @@ module idler(){
 
 }
 
-
-translate([0,26,-33]) idler();
-
-module idler_assembly(){
-    
-    translate([18,5,-0.5]) {
-        rotate([180,0,0]) idler();   
-    
-    }
-    
-
-}
 
 module motor_part(){
 
