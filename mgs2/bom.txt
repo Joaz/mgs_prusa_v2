@@ -1,0 +1,6 @@
+1 x No description set for Class Mgs2Assembly
+2 x Bearing 625ZZ
+2 x Washer , Material steel 8.8 zinc plated
+2 x Bearing mr105ZZ
+1 x Nema 17 stepper, length=36 with holding torque of 4400 g*cm
+4 x M3x8 Bolt, DIN 912, steel 8.8 zinc plated

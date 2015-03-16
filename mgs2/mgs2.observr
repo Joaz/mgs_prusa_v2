@@ -1,0 +1,13 @@
+
+system("./mgs2.rb")
+watch( 'mgs2.rb' )  {|md|
+   system("./mgs2.rb")
+}
+
+watch( 'lib/(.*).rb' )  {|md|
+   system("./mgs2.rb")
+}
+
+watch( 'lib/*/(.*).rb' )  {|md|
+   system("./mgs2.rb")
+}
