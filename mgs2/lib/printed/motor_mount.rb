@@ -9,6 +9,12 @@ class MotorMount < CrystalScad::Printed
 
 #		res -= cube([30,45,25]).center_x.translate(x:20,y:18+5.5,z:-1)
 
+		# idler cutout
+
+		res -= cube([40,25,@height+1]).translate(x:-54,y:13,z:-0.1)
+		
+#		res -= cube([40,25,@height+1]).translate(x:-48,y:13,z:-0.1)
+
 		res = res.translate(y:-3,z:-23)
 		
 

@@ -54,7 +54,14 @@ class DriveShaft < CrystalScad::Assembly
 		end		
 	
 		
-		res += filament_gear.mirror(z:1).translate(z:13+z+=8)
+		res += filament_gear.mirror(z:1).translate(z:13+z+=8).color("Orange")
+
+		# adding a metal distance bolt to the shaft, for having more space between the filament hole and the bearing. 
+		# Plan is to make the filament guide exchangable. While the exchangable part could host the bearing slot,
+		# I fear that this could skew the axis if the printing tolerances are not right.
+		
+		res += cylinder(d:8,h:5).color("Gainsboro").translate(z:8+z+=5)
+	 
 
 
 		# Top Bearing. Using more expensive type MR105 here in order to have enough clearance of the motor
@@ -63,7 +70,7 @@ class DriveShaft < CrystalScad::Assembly
 		unless show
 			bearing = b.output.scale([1.075,1.075,1.0])
 		end		
-		res+= bearing.translate(z:z+=13)
+		res+= bearing.translate(z:z+=13).color("DarkGray")
 		
 
 		res
