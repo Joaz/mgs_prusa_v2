@@ -21,7 +21,6 @@ class Mgs2Assembly < CrystalScad::Assembly
 
 		res = MotorMount.new.show
 	
-		#res += Idler.new.show.rotate(x:90,z:90).translate(x:-30,y:11.5,z:-23)
 
 	
 	end
