@@ -72,6 +72,9 @@ class DriveShaft < CrystalScad::Assembly
 		end		
 		res+= bearing.translate(z:z+=13).color("DarkGray")
 		
+		# That top bearing leaves a very tiny wall towards the motor
+		# which I am eliminating here.
+		res += cube([20,2.5+0.1,4]).translate(y:-0.1,z:z) unless show
 
 		res
 	end
