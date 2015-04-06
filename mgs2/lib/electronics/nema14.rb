@@ -47,11 +47,11 @@ class Nema14 < CrystalScad::Assembly
 		# for output cut
 		flange=cylinder(d:@motor_flange_output_dia,h:@motor_flange_output_height+0.5).translate(z:(@motor_height-0.01)/2-0.5).color("LightGrey") if !show
 		
-		if !show
-			@motor_shaft_OD+=6
-			@motor_shaft_height+=1
+		if show
+			shaft = cylinder(d:@motor_shaft_OD,h:@motor_shaft_height,center:true).translate(z:(@motor_shaft_height+@motor_height)/2).color("WhiteSmoke")
+		else
+			shaft = cylinder(d:@motor_shaft_OD+6,h:@motor_shaft_height+1,center:true).translate(z:(@motor_shaft_height+1+@motor_height)/2).color("WhiteSmoke")
 		end
-		shaft = cylinder(d:@motor_shaft_OD,h:@motor_shaft_height,center:true).translate(z:(@motor_shaft_height+@motor_height)/2).color("WhiteSmoke")
 
 
 		if show
