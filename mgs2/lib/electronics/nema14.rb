@@ -5,6 +5,7 @@ class Nema14 < CrystalScad::Assembly
 		@args=args			
 		@args[:length] = 36
 		@args[:holding_torque] = 4400
+		@output_shaft = nil || @args[:output_shaft]
 
 		@motor_flange_output_dia = @args[:bolt_output_dia] || 22.5
 		@motor_flange_output_height  = @args[:motor_flange_output_height] || 2.4
@@ -50,7 +51,10 @@ class Nema14 < CrystalScad::Assembly
 		if show
 			shaft = cylinder(d:@motor_shaft_OD,h:@motor_shaft_height,center:true).translate(z:(@motor_shaft_height+@motor_height)/2).color("WhiteSmoke")
 		else
-			shaft = cylinder(d:@motor_shaft_OD+6,h:@motor_shaft_height+1,center:true).translate(z:(@motor_shaft_height+1+@motor_height)/2).color("WhiteSmoke")
+			if @output_shaft == nil
+				@output_shaft = cylinder(d:@motor_shaft_OD+6,h:@motor_shaft_height+1) 
+			end
+			shaft = @output_shaft.translate(z:(1+@motor_height)/2).color("WhiteSmoke")
 		end
 
 

@@ -1,13 +1,14 @@
 class DriveShaft < CrystalScad::Assembly
-	attr_accessor :big_gear
-	
-	
+
 	def initialize()
 		@diameter = 5 # That is not going to change any time soon
 		
 		@length = 35	
 		@big_gear = Gear.new(module:0.5,teeth:80,height:4,hub_height:4,hub_dia:20)
-	
+		@filament_diameter = 3.3
+		@filament_position_x = -4
+		@filament_position_y = 22.5
+		@filament_height = 100 # for cut
 	end
 
 	def part(show)
@@ -51,8 +52,10 @@ class DriveShaft < CrystalScad::Assembly
 			filament_gear.color("Brass")
 		else
 			filament_gear += cylinder(d:9,h:11+2).translate(z:-1)
+			res += cylinder(d:@filament_diameter,h:@filament_height).color("Gainsboro").rotate(x:-90).translate(x:@filament_position_x,y:-@filament_height/2.0,z:@filament_position_y)
 		end		
-	
+
+
 		
 		res += filament_gear.mirror(z:1).translate(z:13+z+=8).color("Orange")
 
