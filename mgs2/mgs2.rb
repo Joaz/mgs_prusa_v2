@@ -15,10 +15,4 @@ require_all "lib/**/*.rb"
 # Design -> Automatic Reload and Compile 
 # activated. 
  
-
-res = Mgs2Assembly.new.show
-
-res.save("mgs2.scad","$fn=64;")
-
-@@bom.save("bom.txt")
-
+save!
